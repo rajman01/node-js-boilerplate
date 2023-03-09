@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import paginate from "mongoose-paginate-v2";
-import aggregatePaginate from "mongoose-aggregate-paginate-v2";
+// import aggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 const userSchema = new mongoose.Schema(
     {
@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.plugin(paginate);
-userSchema.plugin(aggregatePaginate);
+// userSchema.plugin(aggregatePaginate);
 
 const User = mongoose.model("User", userSchema);
 

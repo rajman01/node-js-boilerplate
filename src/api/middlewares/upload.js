@@ -1,7 +1,7 @@
 import aws from "aws-sdk";
 import multer from "multer";
 import multerS3 from "multer-s3";
-import {awsBucket, awsRegion} from "../../config/index.js";
+import { awsBucket, awsRegion } from "../../config/index.js";
 
 const s3 = new aws.S3({
     region: awsRegion,

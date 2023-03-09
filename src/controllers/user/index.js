@@ -76,7 +76,7 @@ export class UserController {
                 this.UserFilter.updateUserData({ data, user }),
             );
 
-            return this.handleResponse(200, "user update successfully", {user: updatedUser });
+            return this.handleResponse(200, "user update successfully", { user: updatedUser });
         } catch (e) {
             this.logger.error(e);
             return this.handleResponse(500, e);
