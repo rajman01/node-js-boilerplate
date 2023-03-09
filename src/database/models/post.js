@@ -15,6 +15,10 @@ const postSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
         },
+        file: {
+            type: String,
+            default: "",
+        },
         deleted: {
             type: Boolean,
             default: false,

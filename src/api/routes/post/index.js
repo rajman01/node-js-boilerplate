@@ -4,6 +4,7 @@ import handleResponse from "../../../helpers/response.js";
 import { PostController } from "../../../controllers/post/index.js";
 import { PostValidator } from "../../../validations/post/index.js";
 import auth from "../../middlewares/auth.js";
+import upload from "../../middlewares/upload.js";
 
 const router = Router();
 
@@ -13,8 +14,12 @@ export default app => {
     const postController = new PostController();
     const postValidator = new PostValidator();
 
-    router.post("/create", auth, postValidator.createPost(), async (req, res) => {
+    router.post("/create", auth, upload.single("file"), postValidator.createPost(), async (req, res) => {
         try {
+            if (req.file) {
+                req.body.file = req.file.location;
+            }
+
             const response = await postController.createPost({
                 data: req.body,
                 user: req.user,

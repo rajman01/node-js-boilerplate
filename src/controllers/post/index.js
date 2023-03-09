@@ -20,6 +20,7 @@ export class PostController {
                 title: data.title,
                 body: data.body,
                 user: user._id,
+                file: data.file,
             });
 
             // delete hidden fields
